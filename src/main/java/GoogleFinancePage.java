@@ -15,7 +15,7 @@ public class GoogleFinancePage implements GoogleFinanceMethods {
 
     private final By stocksListContainerLocator = By.cssSelector("[aria-labelledby='smart-watchlist-title']");
     private final By stockSymbolLocator = By.cssSelector("a > div > div > div > div > div > .COaKTb");
-
+//    private final By percentageItemLocator = By.cssSelector("a > div > div > div > span.NydbP > div > div > span");
 
     @Override
     public String getPageTitle() {
@@ -23,7 +23,7 @@ public class GoogleFinancePage implements GoogleFinanceMethods {
     }
 
     @Override
-    public List<String> getStockSymbolsList(WebDriver driver) throws Exception {
+    public List<String> getStockSymbolsList() throws Exception {
         ArrayList<String> stockSymbols = new ArrayList<String>();
 
         List<WebElement> stockElements =
@@ -33,6 +33,23 @@ public class GoogleFinancePage implements GoogleFinanceMethods {
 
             stockSymbols.add(element.findElement(stockSymbolLocator).getText());
         }
+
         return stockSymbols;
     }
+
+//    public List<String> getRelevantStocks() throws Exception {
+//        ArrayList<String> stockSymbols = new ArrayList<String>();
+//
+//        List<WebElement> stockElements =
+//                Utilities.getHTMLListRows(driver.findElement(stocksListContainerLocator));
+//
+//        for (WebElement element : stockElements) {
+//
+//            if(element.findElement(percentageItemLocator).getText().contains("2."))
+//
+//                stockSymbols.add(element.findElement(stockSymbolLocator).getText());
+//        }
+//
+//        return stockSymbols;
+//    }
 }

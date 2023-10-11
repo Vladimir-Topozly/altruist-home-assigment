@@ -41,6 +41,5 @@ class Utilities {
         for (String symbol : elements) {
             System.out.println(symbol + "\n");
         }
-        System.out.println(message);
     }
 }

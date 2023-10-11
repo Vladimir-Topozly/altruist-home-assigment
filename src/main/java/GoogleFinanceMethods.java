@@ -1,10 +1,8 @@
-import org.openqa.selenium.WebDriver;
-
 import java.util.List;
 
 public interface GoogleFinanceMethods {
 
-    List<String> getStockSymbolsList(WebDriver driver) throws Exception;
+    List<String> getStockSymbolsList() throws Exception;
 
     String getPageTitle();
 }
